@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-configmap
+data:
+  000-default.conf: |
+      <VirtualHost *:30004>
+          ServerAdmin webmaster@localhost
+          DocumentRoot /var/www/html
+          <Directory /var/www/html>
+            Options Indexes
+            Require all granted
+          </Directory>
+          ErrorLog ${APACHE_LOG_DIR}/error.log
+          CustomLog ${APACHE_LOG_DIR}/access.log combined
+      </VirtualHost>
